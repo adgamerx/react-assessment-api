@@ -65,7 +65,7 @@ app.patch("/users/:id", async (req, res) => {
     });
     res.status(201).send(updateUsers);
   } catch (error) {
-    res.status(400).send(e);
+    res.status(400).send(error);
   }
   console.timeEnd("Updated User");
 });
