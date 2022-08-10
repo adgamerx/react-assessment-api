@@ -22,19 +22,16 @@ app.post("/users", async (req, res) => {
 
 //for all users
 app.get("/users", async (req, res) => {
-  console.time("Fetched all users");
   try {
     const usersData = await User.find();
     res.status(201).send(usersData);
   } catch (e) {
     res.status(400).send(e);
   }
-  console.timeEnd("Fetched all users");
 });
 
 //for individual user
 app.get("/users/:id", async (req, res) => {
-  console.time("Fetched Single User");
   try {
     const _id = req.params.id;
     const userData = await User.findById(_id);
@@ -46,7 +43,6 @@ app.get("/users/:id", async (req, res) => {
   } catch (e) {
     res.status(400).send(e);
   }
-  console.timeEnd("Fetched Single User");
 });
 
 //update data
