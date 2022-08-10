@@ -9,6 +9,8 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.post("/users", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.time("User Added Time taken");
   try {
     const user = new User(req.body);
@@ -22,6 +24,8 @@ app.post("/users", async (req, res) => {
 
 //for all users
 app.get("/users", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   try {
     const usersData = await User.find();
     res.status(201).send(usersData);
@@ -32,6 +36,8 @@ app.get("/users", async (req, res) => {
 
 //for individual user
 app.get("/users/:id", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   try {
     const _id = req.params.id;
     const userData = await User.findById(_id);
@@ -47,6 +53,8 @@ app.get("/users/:id", async (req, res) => {
 
 //update data
 app.patch("/users/:id", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.time("Updated User");
   try {
     const _id = req.params.id;
