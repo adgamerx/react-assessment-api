@@ -61,8 +61,6 @@ app.get("/users/:id", async (req, res) => {
 
 //update data
 app.patch("/users/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.time("Updated User");
   try {
     const _id = req.params.id;
